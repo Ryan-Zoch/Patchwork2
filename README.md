@@ -1,2 +1,2 @@
 # Project
-tritonhacks 2026
+TritonHacks 2026
