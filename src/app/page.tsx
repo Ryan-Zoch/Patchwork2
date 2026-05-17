@@ -80,10 +80,10 @@ export default function Home() {
       <main className={styles.main}>
         <Image
           className={styles.logo}
-          src="/Pictochat-revived-0.webp"
-          alt="Next.js logo"
-          width={200}
-          height={40}
+          src="/patchworklogo.png"
+          alt="Patchwork logo"
+          width={500}
+          height={500}
           priority
         />
       <div className={styles.maincontent}>
