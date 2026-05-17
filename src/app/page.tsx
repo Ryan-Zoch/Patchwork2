@@ -15,7 +15,7 @@ export default function Home() {
     });
   }
 
-   const canvasRef = useRef<ReactSketchCanvasRef>(null);
+  const canvasRef = useRef<ReactSketchCanvasRef>(null);
   const [eraseMode, setEraseMode] = useState(false);
   const [strokeWidth, setStrokeWidth] = useState(5);
   const [eraserWidth, setEraserWidth] = useState(10);
@@ -30,6 +30,22 @@ export default function Home() {
   const handlePenClick = () => {
     setEraseMode(false);
     canvasRef.current?.eraseMode(false);
+  };
+
+  const handleUndoClick = () => {
+    canvasRef.current?.undo();
+  };
+
+  const handleRedoClick = () => {
+    canvasRef.current?.redo();
+  };
+
+  const handleClearClick = () => {
+    canvasRef.current?.clearCanvas();
+  };
+
+  const handleResetClick = () => {
+    canvasRef.current?.resetCanvas();
   };
 
   const handleStrokeWidthChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -72,6 +88,7 @@ export default function Home() {
             >
               Pen
             </button>
+            
             <button
               type="button"
               className="btn btn-sm btn-outline-primary"
@@ -80,6 +97,37 @@ export default function Home() {
             >
               Eraser
             </button>
+
+            <button
+              type="button"
+              className="btn btn-sm btn-outline-primary"
+              onClick={handleUndoClick}
+            >
+              Undo
+            </button>
+            <button
+              type="button"
+              className="btn btn-sm btn-outline-primary"
+              onClick={handleRedoClick}
+            >
+              Redo
+            </button>
+            <button
+              type="button"
+              className="btn btn-sm btn-outline-primary"
+              onClick={handleClearClick}
+            >
+              Clear
+            </button>
+            <button
+              type="button"
+              className="btn btn-sm btn-outline-primary"
+              onClick={handleResetClick}
+            >
+              Reset
+            </button>
+
+             
             <label htmlFor="strokeWidth" className="form-label">
               Stroke width
             </label>
@@ -126,6 +174,8 @@ export default function Home() {
         
           </div>
           <ReactSketchCanvas
+            width="500px" 
+            height="500px" 
             ref={canvasRef}
             strokeWidth={strokeWidth}
             eraserWidth={eraserWidth}
@@ -141,21 +191,7 @@ export default function Home() {
           </form>
         </div>
         <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
+          
           <a
             className={styles.secondary}
             href="/gallery"
