@@ -44,10 +44,6 @@ export default function Home() {
     canvasRef.current?.clearCanvas();
   };
 
-  const handleResetClick = () => {
-    canvasRef.current?.resetCanvas();
-  };
-
   const handleStrokeWidthChange = (event: ChangeEvent<HTMLInputElement>) => {
     setStrokeWidth(+event.target.value);
   };
@@ -130,13 +126,6 @@ export default function Home() {
             >
               Clear
             </button>
-            <button
-              type="button"
-              className="btn btn-sm btn-outline-primary"
-              onClick={handleResetClick}
-            >
-              Reset
-            </button>
 
              
             <label htmlFor="strokeWidth" className="form-label">
@@ -193,6 +182,16 @@ export default function Home() {
             strokeColor={strokeColor}
             canvasColor={canvasColor}
           />
+
+          <div className={styles.ctas}>
+          <a
+            type="button"
+            className={styles.secondary}
+            onClick={submitDrawing}
+            >
+              Submit Drawing
+          </a>
+        </div>
           <form onSubmit={(e) => {
             e.preventDefault();
             handleUpload(new FormData(e.currentTarget));
@@ -214,13 +213,6 @@ export default function Home() {
         </div>
 
           <div className={styles.intro}>
-            <button
-              type="button"
-              className="btn btn-sm btn-outline-primary"
-              onClick={submitDrawing}
-            >
-              Submit Drawing
-            </button>
           </div>
 
 
