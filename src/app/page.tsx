@@ -1,7 +1,15 @@
+"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
+  async function handleUpload(formData: FormData) {
+    await fetch("/api/upload", {
+      method: "POST",
+      body: formData,
+    });
+  }
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -15,7 +23,7 @@ export default function Home() {
         />
         <div className={styles.maincontent}>
         <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
+          {/* <h1>To get started, edit the page.tsx file.</h1>
           <p>
             Looking for a starting point or more instructions? Head over to{" "}
             <a
@@ -34,7 +42,14 @@ export default function Home() {
               Learning
             </a>{" "}
             center.
-          </p>
+          </p> */}
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            handleUpload(new FormData(e.currentTarget));
+          }}>
+            <input type="file" name="file" accept="image/*" />
+            <button type="submit">Upload</button>
+          </form>
         </div>
         <div className={styles.ctas}>
           <a
@@ -54,11 +69,11 @@ export default function Home() {
           </a>
           <a
             className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+            href="/gallery"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Documentation
+            Gallery
           </a>
         </div>
         </div>
