@@ -87,10 +87,10 @@ export default function Home() {
         <div className={styles.intro}>
           <h1>Tools</h1>
 
-          <div className={styles.toolbar}>
+          <div className={styles.toolBar}>
             <button
               type="button"
-              className={styles.toolbar}
+              className={styles.toolBtn}
               disabled={!eraseMode}
               onClick={handlePenClick}
             >
@@ -99,7 +99,7 @@ export default function Home() {
             
             <button
               type="button"
-              className={styles.toolbar}
+              className={styles.toolBtn}
               disabled={eraseMode}
               onClick={handleEraserClick}
             >
@@ -108,29 +108,29 @@ export default function Home() {
 
             <button
               type="button"
-              className={styles.toolbar}
+              className={styles.toolBtn}
               onClick={handleUndoClick}
             >
               Undo
             </button>
             <button
               type="button"
-              className={styles.toolbar}
+              className={styles.toolBtn}
               onClick={handleRedoClick}
             >
               Redo
             </button>
             <button
               type="button"
-              className={styles.toolbar}
+              className={styles.toolBtn}
               onClick={handleClearClick}
             >
               Clear
-            </button>
-
+            </button> </div>
              
+             <div className={styles.sliders}>
             <label htmlFor="strokeWidth" className="form-label">
-              Stroke width
+              Stroke Width
             </label>
             <input
               disabled={eraseMode}
@@ -144,7 +144,7 @@ export default function Home() {
               onChange={handleStrokeWidthChange}
             />
             <label htmlFor="eraserWidth" className="form-label">
-              Eraser width
+              Eraser Width
             </label>
             <input
               disabled={!eraseMode}
@@ -157,7 +157,7 @@ export default function Home() {
               value={eraserWidth}
               onChange={handleEraserWidthChange}
             />
-
+            </div>
           <div className="d-flex gap-2 align-items-center ">
             <label htmlFor="color">Stroke color</label>
             <input
@@ -173,7 +173,7 @@ export default function Home() {
             />
           </div>
         
-          </div>
+          
           <ReactSketchCanvas
             width="500px" 
             height="500px" 
@@ -192,6 +192,14 @@ export default function Home() {
             >
               Submit Drawing
           </a>
+                    <a
+            className={styles.secondary}
+            href="/gallery"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Gallery
+          </a>
         </div>
           <form onSubmit={(e) => {
             e.preventDefault();
@@ -202,15 +210,6 @@ export default function Home() {
           </form>
         </div>
         <div className={styles.ctas}>
-          
-          <a
-            className={styles.secondary}
-            href="/gallery"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Gallery
-          </a>
         </div>
 
           <div className={styles.intro}>
