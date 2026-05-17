@@ -3,10 +3,6 @@
   foreground-color: #f07d9d;
 }
 
-.titleText{
-
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 equal columns, share all available width */
