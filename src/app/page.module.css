@@ -146,6 +146,35 @@ a.secondary {
   }
 }
 
-.logo{
-  filter: invert();
+
+.toolBar {
+  display: flex;
+  flex-direction: row;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  width: fit-content;
+}
+
+.toolBtn {
+  padding: 8px 16px;
+  border: none;
+  border-right: 1px solid #ccc;
+  background: #f07d9d;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+.toolBtn:last-child {
+  border-right: none;
+}
+
+.toolBtn:disabled {
+  background: #d4568a;
+  color: rgba(255,255,255,0.6);
+  cursor: default;
+}
+
+.toolBtn:hover:not(:disabled) {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0)), #f07d9d;
 }
