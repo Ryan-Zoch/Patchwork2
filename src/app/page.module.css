@@ -24,8 +24,8 @@
   width: 100%;
   max-width: 100vw;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 30px;
+  align-items: center;
+  gap: 0px;
   background-color: var(--foreground);
   padding: 30px 30px;
 }
@@ -54,8 +54,8 @@
 .intro {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   gap: 30px;
 }
 

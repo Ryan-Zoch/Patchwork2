@@ -78,8 +78,9 @@ export default function Home() {
           className={styles.logo}
           src="/patchworklogo.png"
           alt="Patchwork logo"
-          width={500}
-          height={500}
+          width={1000}
+          height={256}
+          style={{ width: 500, height: 'auto' }} 
           priority
         />
       <div className={styles.maincontent}>
