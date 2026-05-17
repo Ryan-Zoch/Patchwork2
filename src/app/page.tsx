@@ -64,6 +64,17 @@ export default function Home() {
     setCanvasColor(event.target.value);
   };
 
+  const submitDrawing = () => {
+    canvasRef.current?.exportImage('jpeg')
+    .then((data) =>{
+      console.log(data)
+      const link = document.createElement('a')
+      link.href = data
+      link.download = "canvas.png"
+      link.click()
+    })
+  };
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -201,10 +212,25 @@ export default function Home() {
             Gallery
           </a>
         </div>
+
+          <div className={styles.intro}>
+            <button
+              type="button"
+              className="btn btn-sm btn-outline-primary"
+              onClick={submitDrawing}
+            >
+              Submit Drawing
+            </button>
+          </div>
+
+
+
         </div>
         <div className={styles.lowerText}>
+
           <h1>About</h1>
            </div>
+
 
           <div className={styles.purpose}>
           <h2> Intended Purpose:</h2>
