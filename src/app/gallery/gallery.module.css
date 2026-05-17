@@ -1,12 +1,20 @@
+.page {
+  --background: #c57272;
+  --foreground: #fff;
+}
+
+.titleText{
+    
+}
+
 .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(3, 600px);
-    gap: 16px;
-    padding: 24px 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns, share all available width */
+  gap: 16px;
+  padding: 24px;
 }
 
 .image {
-    width: 960px;
+    width: 300px;
     height: 540px;
 }
