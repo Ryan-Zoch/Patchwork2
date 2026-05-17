@@ -2,6 +2,8 @@ import { list } from "@vercel/blob";
 import styles from "./gallery.module.css";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 
 export default async function GalleryPage() {
   const { blobs } = await list();
