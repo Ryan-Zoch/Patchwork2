@@ -64,9 +64,13 @@ export default function Home() {
     canvasRef.current?.exportImage('jpeg')
     .then((data) =>{
       console.log(data)
+      const now = new Date();
+      const timestamp = now.toISOString().replace(/[:.]/g, '-').slice(0, 19);
+
       const link = document.createElement('a')
       link.href = data
-      link.download = "canvas.png"
+      // link.download = "canvas.png"
+      link.download = `canvas-${timestamp}.png`;
       link.click()
     })
   };
